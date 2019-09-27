@@ -28,5 +28,8 @@ services:
       - ELASTICSEARCH_URL=http://localhost:9200
       - NEW_RELIC_APP_NAME=h (prod)
       - NEW_RELIC_LICENSE_KEY
+      - APP_URL=http://localhost:5000
       - SECRET_KEY=notasecret
       - 80:80
+    command: /var/lib/hypothesis/bin/hypothesis init
+   # command: /var/lib/hypothesis/bin/hypothesis devserver
