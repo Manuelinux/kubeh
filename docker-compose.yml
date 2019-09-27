@@ -1,0 +1,32 @@
+version: '3'
+services:
+  postgres:
+    image: postgres:9.4-alpine
+    ports:
+      - '127.0.0.1:5432:5432'
+  elasticsearch:
+    image: hypothesis/elasticsearch:latest
+    ports:
+      - '127.0.0.1:9200:9200'
+    environment:
+      - discovery.type=single-node
+  rabbit:
+    image: rabbitmq:3.6-management-alpine
+    ports:
+      - '127.0.0.1:5672:5672'
+      - '127.0.0.1:15672:15672'
+  frontend:
+    image: hypothesis/hypothesis
+    ports:
+      - '127.0.0.1:5000:5000'
+    environment:
+      - AUTHORITY=localhost
+      - BROKER_URL=amqp://guest:guest@rabbit:5672//
+      - CLIENT_OAUTH_ID
+      - CLIENT_URL=http://localhost:3001/hypothesis
+      - DATABASE_URL=postgresql://postgres@postgres:5432/htest
+      - ELASTICSEARCH_URL=http://localhost:9200
+      - NEW_RELIC_APP_NAME=h (prod)
+      - NEW_RELIC_LICENSE_KEY
+      - SECRET_KEY=notasecret
+      - 80:80
