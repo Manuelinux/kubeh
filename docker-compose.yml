@@ -1,7 +1,7 @@
 version: '3'
 services:
   postgres:
-    image: postgres:9.4-alpine
+    image: manuelinuts/hpostgres:1.1
     ports:
       - '127.0.0.1:5432:5432'
   elasticsearch:
@@ -31,5 +31,5 @@ services:
       - APP_URL=http://localhost:5000
       - SECRET_KEY=notasecret
       - 80:80
-    command: /var/lib/hypothesis/bin/hypothesis init
+   # command: /var/lib/hypothesis/bin/hypothesis init
    # command: /var/lib/hypothesis/bin/hypothesis devserver
