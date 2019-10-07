@@ -41,6 +41,10 @@ services:
       - SECRET_KEY=notasecret
       - 80:80
       - NEW_RELIC_MONITOR_MODE=false
-    #command: hypothesis init
+    command: >
+      /bin/sh -c "
+        sleep 60;
+        hypothesis init;
+      "
     #command: hypothesis migrate upgrade head
    # command: /var/lib/hypothesis/bin/hypothesis devserver
