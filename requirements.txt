@@ -68,7 +68,7 @@ iso8601==0.1.11
     #   deform
 itsdangerous==0.24
     # via -r requirements.in
-jinja2==2.10.1
+jinja2==2.11.3
     # via pyramid-jinja2
 jsonpointer==1.0
     # via -r requirements.in
