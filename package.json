@@ -36,7 +36,7 @@
     "mkdirp": "^0.5.1",
     "normalize.css": "^8.0.0",
     "popper.js": "^1.14.4",
-    "postcss": "^6.0.21",
+    "postcss": "^7.0.36",
     "postcss-url": "^7.3.1",
     "query-string": "^3.0.1",
     "raven-js": "^3.7.0",
